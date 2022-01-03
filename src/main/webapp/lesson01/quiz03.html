@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!--  bootstrap -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+</head>
+<body>
+	<h2>주문하기</h2>
+	
+	<form method="get" action="/servlet/quiz03">
+		<div class="form-froup">
+		<label for="adress">주소</label>
+		<input type="text" id="adress" class="form-control col-3" name="adress" placeholder="주소를 입력하세요.">
+		</div>
+		
+		<div class="from-froup">
+			<label for="card">카드</label>
+			<input type="text" id="card" class="form-control col-3" name="card" placeholder="결제카드를 입력하세요.">
+		</div>
+		
+		<div>
+			<label for="price">가격</label>
+			<input type="text" id="price" class="form-control col-3" name="price" placeholder="가격을 입력하세요.">
+		</div>
+		<div>
+		<input type="submit" class="btn btn-primary" value="주문하기">
+		</div>
+	</form>
+
+
+
+</body>
+</html>
