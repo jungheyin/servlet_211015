@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>계산기</title>
+<title>길이 변환</title>
 <!--  bootstrap -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
@@ -13,22 +13,38 @@
 
 </head>
 <body>
-	<div class="container">
-		<h1>사칙 연산 계산기</h1>
-		<form method="post" action="/lesson02/quiz04_1.jsp">
-			<div class="d-flex">
-				<input type="text" id="number1" class="form-control col-2 mr-2" name="number1">
-				<select class="form-control col-2 mr-2" name="operator">
-					<option value="plus">+</option>
-					<option value="minus">-</option>
-					<option vlaue="multiple">*</option>
-					<option vlaue="divide">/</option>
-				</select>
-				<input type="text" id="number2" class="form-control col-2 mr-2" name="number2">
-				<input type="submit" class="btn btn-success" name="operate" value="계산하기">
-			</div>
-		</form>
-	</div>
+
+<%
+	Integer cm = Integer.valueOf(request.getParameter("length"));
+	String[] types = request.getParameterValues("type"); // 여러 파라미터를 가져올때 (chekbox)
 	
+	
+%>
+
+	<div class="container">
+		<h1>길이 변환 결과</h1>
+		<h3><%= cm %>cm</h3>
+		<hr>
+		<h2>
+			<%
+				for (String type : types) {
+					if (type.equals("inch")) {
+						double inch = cm * 0.393701;
+						out.print(inch + "in<br>");
+					} else if (type.equals("yard")) {
+						 double yard= cm * 0.0109361;
+						out.print(yard + "yd<br>");
+					} else if (type.equals("feet")) {
+						double feet = cm * 0.0328084;
+						out.print(feet + "ft<br>");
+					} else if (type.equals("meter")) {
+						 double meter = cm * 0.01;
+						out.print(meter + "m");
+					}
+				}
+			%>
+		
+		</h2>
+	</div>
 </body>
 </html>

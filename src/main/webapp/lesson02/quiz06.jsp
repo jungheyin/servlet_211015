@@ -1,10 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.util.List" 
+	 	 import="java.util.Arrays"
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>계산기</title>
+<title>장보기 목록</title>
 <!--  bootstrap -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
@@ -13,22 +16,39 @@
 
 </head>
 <body>
-	<div class="container">
-		<h1>사칙 연산 계산기</h1>
-		<form method="post" action="/lesson02/quiz04_1.jsp">
-			<div class="d-flex">
-				<input type="text" id="number1" class="form-control col-2 mr-2" name="number1">
-				<select class="form-control col-2 mr-2" name="operator">
-					<option value="plus">+</option>
-					<option value="minus">-</option>
-					<option vlaue="multiple">*</option>
-					<option vlaue="divide">/</option>
-				</select>
-				<input type="text" id="number2" class="form-control col-2 mr-2" name="number2">
-				<input type="submit" class="btn btn-success" name="operate" value="계산하기">
-			</div>
-		</form>
-	</div>
+<%
+List<String> goodsList = Arrays.asList(new String[]{ 
+	    "저지방 우유", "요플레 4개", "딸기 1팩", "삼겹살 300g", "생수 6개", "주방 세제"
+	});
+%>
 	
+	<div class="container">
+		<div class="text-center">
+			<h1>장보기 목록</h1>
+		</div>
+		
+		<table class= "table text-center">
+			<thead>
+				<tr>
+					<th>번호</th>
+					<th>품목</th>
+				</tr>
+			</thead>
+			<tbody>
+			<%
+				for (int i = 0; i < goodsList.size(); i++) {
+			%>	
+				<tr>
+					<td><%= i + 1%></td>		
+					<td><%= goodsList.get(i) %></td>	
+				</tr>	
+					
+			<%		
+				}
+			 %>
+			 </tbody>
+		</table>	
+		
+	</div>
 </body>
 </html>

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>계산기</title>
+<title>배탈의 민족</title>
 <!--  bootstrap -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
@@ -14,21 +14,15 @@
 </head>
 <body>
 	<div class="container">
-		<h1>사칙 연산 계산기</h1>
-		<form method="post" action="/lesson02/quiz04_1.jsp">
+		<h1>메뉴 검색</h1>
+		<form method="post" action="/lesson02/quiz07_1.jsp">
 			<div class="d-flex">
-				<input type="text" id="number1" class="form-control col-2 mr-2" name="number1">
-				<select class="form-control col-2 mr-2" name="operator">
-					<option value="plus">+</option>
-					<option value="minus">-</option>
-					<option vlaue="multiple">*</option>
-					<option vlaue="divide">/</option>
-				</select>
-				<input type="text" id="number2" class="form-control col-2 mr-2" name="number2">
-				<input type="submit" class="btn btn-success" name="operate" value="계산하기">
-			</div>
+				<input type="text" class="form-control col-3 mr-1" name="menu">
+				<label><input type="checkbox" class="mt-3 mr-1" name="filter">4점 이하 제외</label>
+			</div>	
+			<input type="submit" class="btn btn-success mt-2" value="검색">
+		
 		</form>
 	</div>
-	
 </body>
 </html>
