@@ -17,8 +17,8 @@
 		<h1>메뉴 검색</h1>
 		<form method="post" action="/lesson02/quiz07_1.jsp">
 			<div class="d-flex">
-				<input type="text" class="form-control col-3 mr-1" name="menu">
-				<label><input type="checkbox" class="mt-3 mr-1" name="filter">4점 이하 제외</label>
+				<input type="text" class="form-control col-3 mr-2" name="keyword">
+				<label><input type="checkbox" class="mt-3 mr-1" name="starPointFilter" value="true">4점 이하 제외</label>
 			</div>	
 			<input type="submit" class="btn btn-success mt-2" value="검색">
 		
