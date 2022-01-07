@@ -3,7 +3,7 @@
 <nav
 	class="menu bg-danger d-flex align-items-center text-danger font-weight-bold ">
 	<ul class="nav nav-fill w-100">
-		<li class="nav-item" name="category" value="전체"><a href="#"
+		<li class="nav-item" name="category" value="전체"><a href="content-all"
 			class="nav-link nav-inline-text">전체</a></li>
 		<li class="nav-item" name="category" value="지상파"><a href="#"
 			class="nav-link nav-inline-text">지상파</a></li>
