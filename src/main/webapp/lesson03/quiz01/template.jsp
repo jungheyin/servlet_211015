@@ -32,17 +32,16 @@ nav {
 	height: 50px;
 }
 
-.contents {
-	height: 900px;
-}
 
 footer {
 	height: 50px;
 }
 
-.menu .nav-inline-text {
-	color: white
-}
+<!-- secttion 부분의 높이를 안주면 유동적으로 높이가 늘어갈 수 있다 -->
+
+a {color:#fff;}
+a:hover {color:#fff;}
+
 </style>
 </head>
 <body>
@@ -182,35 +181,10 @@ footer {
 	list.add(map);
 	%>
 	<div id="wrap" class="container">
+		
 		<jsp:include page="header.jsp" />
-
-		<jsp:include page="nav.jsp" />
-		<section class="contents ">
-			<table class="table">
-				<thead class="text-center">
-					<tr>
-						<th>채널</th>
-						<th>채널명</th>
-						<th>카테고리</th>
-					</tr>
-				</thead>
-				<tbody class="text-center">
-					<%
-					for (Map<String, String> item : list) {
-					%>
-					<tr>
-						<td><%=item.get("ch")%></td>
-						<td><%=item.get("name")%></td>
-						<td><%=item.get("category")%></td>
-					</tr>
-
-
-					<%
-					}
-					%>
-				</tbody>
-			</table>
-		</section>
+		<jsp:include page="menu.jsp" />		
+		<jsp:include page="section.jsp" />
 		<jsp:include page="footer.jsp" />
 	</div>
 </body>
