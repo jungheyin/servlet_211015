@@ -81,9 +81,7 @@
  musicList.add(musicInfo);
 %>
 
-<%
 
-%>
 <section class="contents">
 	<!-- 가수영역 -->
 			<section class="singer border border-success">
@@ -113,17 +111,19 @@
 					</thead>
 					<tbody>
 					<% 
-						
+					for (Map<String, Object> item : musicList) {
 					
 					
 					%>
 						<tr>
-							<td>1</td>
-							<td>2</td>
-							<td>3</td>
+							<td><b><%= item.get("id") %></b></td>
+							<td><b><a href="info_template.jsp?id=<%=item.get("id")%>"><%= item.get("title") %></a></b></td>
+							<td><b><%= item.get("album") %></b></td>
 						</tr>
+					<%
+						}
+					%>
 					</tbody>
 				</table>
-			
 			</section>
 		</section>
