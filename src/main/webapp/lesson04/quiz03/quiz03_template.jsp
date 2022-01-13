@@ -1,12 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="com.test.common.MysqlService" %>  
-<%@ page import="java.sql.ResultSet" %>  
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>즐겨찾기 목록</title>
+<title>홍당무 마켓</title>
 <!--  bootstrap -->
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -23,48 +21,58 @@
 	src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
 	integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
 	crossorigin="anonymous"></script>
-
+<style>
+header {
+	height:120px; 
+	background-color:#ff9500;
+	}
+header .logo {
+	color:white;
+	decoration:none;
+}
+header .logo:hover {
+	color:white;
+}
+nav {
+	height:70px;
+	background-color:#ff9500;
+	}
+nav .nav-text {
+	color:white;
+	decoration:none;
+	font-size:18px;
+	font-weight:bold;
+}
+nav .nav-text:hover {
+	color:white;
+	font-size:18px;
+	font-weight:bold;
+}
+.contents {
+	height:700px;
+	font-weight:bold;
+	}
+.contents .border {
+	border-style:solid;
+	border-color:#ff9500;
+}
+.contents .price {
+	color:#c0c0c0;
+}
+.contents .userName {
+	color:#ff9500;
+}
+footer {height:100px}
+</style>
 </head>
 <body>
+	
 
-<%
-	// DB연결
-	MysqlService mysql = MysqlService.getInstance();
-	mysql.connection();
-	// select query
-	String query = "select * from `site` order by `id` desc";
-	ResultSet result = mysql.select(query);
-%>
 	<div class="container">
-		<h1>즐겨찾기 목록</h1>
-		<table class="table text-center">
-			<thead>
-				<tr>
-					<th>사이트</th>
-					<th>사이트 주소</th>
-					<th>삭제</th>
-				</tr>
-			</thead>
-			<tbody class="font-weight-bold">
-			<% 
-				while (result.next()) {
-			%>
-			
-				<tr>
-					<td><%= result.getString("name") %></td>
-					<td><a href="<%= result.getString("url") %>"><%= result.getString("url") %></a></td>
-					<td><a href="/db/quiz02_delete?id=<%= result.getInt("id") %>" class="btn btn-danger">삭제</a></td>
-				</tr>
-			<%
-				}
-			%>
-			</tbody>
-		</table>
-		
-		<%
-		//DB연동 해제
-		mysql.disconneciton();
-		%>
+		<jsp:include page="header.jsp" />
+		<jsp:include page="menu.jsp" />
+		<jsp:include page="section.jsp" />
+		<jsp:include page="footer.jsp" />
 	</div>
 </body>
 </html>

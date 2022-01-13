@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>즐겨찾기 목록</title>
+<title>즐겨찾기 추가</title>
 <!--  bootstrap -->
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -28,43 +28,43 @@
 <body>
 
 <%
-	// DB연결
+	//DB 추가
 	MysqlService mysql = MysqlService.getInstance();
 	mysql.connection();
+	
 	// select query
-	String query = "select * from `site` order by `id` desc";
-	ResultSet result = mysql.select(query);
+	String query = "select * from `site`";
+	ResultSet result = mysql.select(query); 
+	
+	
 %>
+	<!--  request 부분!! -->
 	<div class="container">
-		<h1>즐겨찾기 목록</h1>
-		<table class="table text-center">
-			<thead>
-				<tr>
-					<th>사이트</th>
-					<th>사이트 주소</th>
-					<th>삭제</th>
-				</tr>
-			</thead>
-			<tbody class="font-weight-bold">
-			<% 
-				while (result.next()) {
-			%>
-			
-				<tr>
-					<td><%= result.getString("name") %></td>
-					<td><a href="<%= result.getString("url") %>"><%= result.getString("url") %></a></td>
-					<td><a href="/db/quiz02_delete?id=<%= result.getInt("id") %>" class="btn btn-danger">삭제</a></td>
-				</tr>
-			<%
-				}
-			%>
-			</tbody>
-		</table>
+		<h1>즐겨찾기 추가</h1>
 		
-		<%
-		//DB연동 해제
-		mysql.disconneciton();
-		%>
+		<form method="post" action="/db/quiz02_insert">	<!-- 사이트를 쿼리를 보내주는건 post방식으로 보낸다!! -->
+			<label class="w-25">
+				<b>사이트명:</b>
+				<input type="text" class="form-control mt-1" name="name">
+			</label><br>
+			<label class="w-50 mt-2 mb-4">
+				<b>사이트 주소:</b>
+				<input type="text" class="form-control mt-1" name="url">
+			</label>
+			<div>
+				<button type="submit" class="btn btn-success">추가</button>
+			</div>
+		</form>
 	</div>
+	
+	<% 
+	
+	
+	// DB 연동 해제
+		mysql.disconneciton();
+	
+	// 리다이렉트
+		
+	%>
 </body>
 </html>
